@@ -53,7 +53,5 @@ actions:
   default:
     kind: "github/pullrequest"
     spec:
-      description: "The following chart to update"
-      title: "Update to chart versions"
       mergemethod: "squash"
     scmid: "default"
