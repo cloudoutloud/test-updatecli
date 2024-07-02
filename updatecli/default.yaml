@@ -46,6 +46,7 @@ scms:
       username: cloudoutloud
       owner: "cloudoutloud"
       repository: test-updatecli
+      token: PAT_TOKEN
       branch: "main"
 
 actions:
