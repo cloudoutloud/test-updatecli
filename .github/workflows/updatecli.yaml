@@ -31,11 +31,11 @@ jobs:
         uses: updatecli/updatecli-action@v2
 
       - name: Run Updatecli in Dry Run mode
-        run: "updatecli diff --config ./updatecli/updatecli.d --values updatecli/values.yaml"
+        run: "updatecli diff --config ./updatecli/default.yaml"
         env:
           UPDATECLI_GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Run Updatecli in apply mode
-        run: "updatecli apply --config ./updatecli/updatecli.d --values updatecli/values.yaml"
+        run: "updatecli apply --config ./updatecli/default.yaml"
         env:
           UPDATECLI_GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
