@@ -46,7 +46,6 @@ scms:
       username: cloudoutloud
       owner: "cloudoutloud"
       repository: test-updatecli
-      # token: "${{ secrets.PAT_TOKEN }}"
       branch: "main"
 
 actions:
