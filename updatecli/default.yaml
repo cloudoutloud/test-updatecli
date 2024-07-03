@@ -43,10 +43,10 @@ scms:
     kind: github
     spec:
       user: "cloudoutloud"
-      username: cloudoutloud
+      username: "cloudoutloud"
       owner: "cloudoutloud"
-      repository: test-updatecli
-      token: "UPDATECLI_GITHUB_TOKEN"
+      repository: "test-updatecli"
+      token: "{{ requiredEnv .github.token }}"
       branch: "add-actions-updates"
 
 actions:
