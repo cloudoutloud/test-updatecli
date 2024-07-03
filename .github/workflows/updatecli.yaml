@@ -21,13 +21,6 @@ permissions:
   pull-requests: "write"
 
 jobs:
-  job1:
-    runs-on: "ubuntu-latest"
-    env:
-      JOB_VAR: 'JobSpecificValue' # Environment variable only for this job
-    steps:
-      - name: Use job-specific environment variable
-        run: echo $JOB_VAR # Outputs the job-specific variable
   updatecli:
     runs-on: "ubuntu-latest"
     env:
@@ -42,7 +35,5 @@ jobs:
       - name: Run Updatecli in Dry Run mode
         run: "updatecli diff --config ./updatecli/default.yaml"
 
-      # - name: Run Updatecli in apply mode
-      #   run: "updatecli apply --config ./updatecli/default.yaml --values updatecli/values.yaml"
-      #   env:
-      #     UPDATECLI_GITHUB_TOKEN: "${{ secrets.PAT_TOKEN }}"
+      - name: Run Updatecli in apply mode
+        run: "updatecli apply --config ./updatecli/default.yaml"
