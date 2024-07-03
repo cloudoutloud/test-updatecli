@@ -30,6 +30,8 @@ jobs:
         run: echo $JOB_VAR # Outputs the job-specific variable
   updatecli:
     runs-on: "ubuntu-latest"
+    env:
+      UPDATECLI_GITHUB_TOKEN: "${{ secrets.PAT_TOKEN }}"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -39,8 +41,6 @@ jobs:
 
       - name: Run Updatecli in Dry Run mode
         run: "updatecli diff --config ./updatecli/default.yaml"
-        # env:
-        #   UPDATECLI_GITHUB_TOKEN: "${{ secrets.PAT_TOKEN }}"
 
       # - name: Run Updatecli in apply mode
       #   run: "updatecli apply --config ./updatecli/default.yaml --values updatecli/values.yaml"
