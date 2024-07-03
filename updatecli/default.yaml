@@ -42,11 +42,11 @@ scms:
   default:
     kind: github
     spec:
-      user: ""
-      username: ""
-      owner: ""
-      repository: test-updatecli
-      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      user: "cloudoutloud"
+      username: "cloudoutloud"
+      owner: "cloudoutloud"
+      repository: "test-updatecli"
+      token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       branch: "main"
 
 actions:
