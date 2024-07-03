@@ -46,7 +46,7 @@ scms:
       username: "cloudoutloud"
       owner: "cloudoutloud"
       repository: "test-updatecli"
-      token: GITHUB_TOKEN
+      token: "GITHUB_TOKEN"
       branch: "add-actions-updates"
 
 actions:
