@@ -21,6 +21,13 @@ permissions:
   pull-requests: "write"
 
 jobs:
+  job1:
+    runs-on: "ubuntu-latest"
+    env:
+      JOB_VAR: 'JobSpecificValue' # Environment variable only for this job
+    steps:
+      - name: Use job-specific environment variable
+        run: echo $JOB_VAR # Outputs the job-specific variable
   updatecli:
     runs-on: "ubuntu-latest"
     steps:
