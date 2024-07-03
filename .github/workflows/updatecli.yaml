@@ -32,8 +32,8 @@ jobs:
 
       - name: Run Updatecli in Dry Run mode
         run: "updatecli diff --config ./updatecli/default.yaml"
-        # env:
-        #   UPDATECLI_GITHUB_TOKEN: "${{ secrets.PAT_TOKEN }}"
+        env:
+          UPDATECLI_GITHUB_TOKEN: "${{ secrets.PAT_TOKEN }}"
 
       # - name: Run Updatecli in apply mode
       #   run: "updatecli apply --config ./updatecli/default.yaml --values updatecli/values.yaml"
