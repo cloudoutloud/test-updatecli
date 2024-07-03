@@ -47,7 +47,7 @@ scms:
       owner: "cloudoutloud"
       repository: test-updatecli
       token: "UPDATECLI_GITHUB_TOKEN"
-      branch: "main"
+      branch: "add-actions-updates"
 
 actions:
   default:
