@@ -47,17 +47,14 @@ scms:
       # email: 'github-actions[bot]@users.noreply.github.com'
       user: 'cloudoutloud'
       username: 'cloudoutloud'
-      owner: "cloudoutloud"
-      repository: "test-updatecli"
-      token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: "main"
+      owner: 'cloudoutloud'
+      # email: ''
+      repository: 'test-updatecli'
+      token: ''
+      branch: 'test-GH-app'
       gpg:
-        passphrase: '{{ requiredEnv "GPG_PASS_PHRASE" }}'
-        signingKey:
-          -----BEGIN PGP PRIVATE KEY BLOCK-----
-
-          '{{ requiredEnv "GPG_KEY" }}'
-          -----END PGP PRIVATE KEY BLOCK-----
+        passphrase: ''
+        signingKey: |
 
 actions:
   default:
