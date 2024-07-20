@@ -52,7 +52,7 @@ jobs:
         uses: updatecli/updatecli-action@v2
 
       - name: "Run updatecli in dryrun"
-        run: "updatecli compose diff"
+        run: "updatecli diff --config ./updatecli/default.yaml"
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
