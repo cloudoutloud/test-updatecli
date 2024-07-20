@@ -48,6 +48,10 @@ scms:
       repository: "test-updatecli"
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       branch: "test-GH-app"
+      gpg:
+        signingKey: |
+            '{{ requiredEnv "UPDATECLIBOT_APP_PRIVKEY" }}'
+        enabled: true
 
 actions:
   default:
