@@ -8,7 +8,7 @@ spec:
   source:
     chart: groundcover
     repoURL: https://helm.groundcover.com
-    targetRevision: 1.8.28
+    targetRevision: 1.8.44
     helm:
       releaseName: groundcover
   destination:
