@@ -42,19 +42,20 @@ scms:
   default:
     kind: github
     spec:
-      # user: 'github-actions[bot]'
-      # username: 'github-actions[bot]'
-      # email: 'github-actions[bot]@users.noreply.github.com'
-      user: 'cloudoutloud'
-      username: 'cloudoutloud'
+      user: 'github-actions[bot]'
+      username: 'github-actions[bot]'
+      email: 'github-actions[bot]@users.noreply.github.com'
+      # user: 'cloudoutloud'
+      # username: 'cloudoutloud'
       owner: 'cloudoutloud'
       # email: ''
       repository: 'test-updatecli'
-      token: ''
+      token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       branch: 'test-GH-app'
-      gpg:
-        passphrase: ''
-        signingKey: |
+      commitusingapi: true
+      # gpg:
+      #   passphrase: ''
+      #   signingKey: |
 
 actions:
   default:

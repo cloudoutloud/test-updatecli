@@ -16,37 +16,14 @@ on:
   #   # Run once a day
   #   - cron: '0 0 * * *'
 
-# permissions:
-#   contents: "write"
-#   pull-requests: "write"
-
-# Job example with GH user and PAT token that signs commit with GPG
-jobs:
-  updatecli:
-    runs-on: "ubuntu-latest"
-    env:
-      UPDATECLI_GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      # GPG_KEY: "${{ secrets.GPG_KEY }}"
-      # GPG_PASS_PHRASE: "${{ secrets.GPG_PASS_PHRASE }}"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install Updatecli in the runner
-        uses: updatecli/updatecli-action@v2
-
-      - name: Run Updatecli in Dry Run mode
-        run: "updatecli diff --config ./updatecli/default.yaml"
-
-      - name: Run Updatecli in apply mode
-        run: "updatecli apply --config ./updatecli/default.yaml"
-
-# ## Job example when using a GH app to generate a token
+# # Job example with GH user and PAT token that signs commit with GPG
 # jobs:
 #   updatecli:
 #     runs-on: "ubuntu-latest"
-#     # env:
-#     #    UPDATECLIBOT_APP_PRIVKEY: "${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}"
+#     env:
+#       UPDATECLI_GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+#       # GPG_KEY: "${{ secrets.GPG_KEY }}"
+#       # GPG_PASS_PHRASE: "${{ secrets.GPG_PASS_PHRASE }}"
 #     steps:
 #       - name: Checkout
 #         uses: actions/checkout@v2
@@ -54,18 +31,37 @@ jobs:
 #       - name: Install Updatecli in the runner
 #         uses: updatecli/updatecli-action@v2
 
-#       - id: generate_token
-#         uses: actions/create-github-app-token@v1
-#         with:
-#           app-id: ${{ secrets.UPDATECLIBOT_APP_ID }}
-#           private-key: ${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}
-
-#       - name: "Run updatecli in dryrun"
+#       - name: Run Updatecli in Dry Run mode
 #         run: "updatecli diff --config ./updatecli/default.yaml"
-#         env:
-#           UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
-#       - name: "Run updatecli"
+#       - name: Run Updatecli in apply mode
 #         run: "updatecli apply --config ./updatecli/default.yaml"
-#         env:
-#           UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+## Job example when using a GH app to generate a token
+jobs:
+  updatecli:
+    runs-on: "ubuntu-latest"
+    env:
+       UPDATECLIBOT_APP_PRIVKEY: "${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Updatecli in the runner
+        uses: updatecli/updatecli-action@v2
+
+      - id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.UPDATECLIBOT_APP_ID }}
+          private-key: ${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}
+
+      - name: "Run updatecli in dryrun"
+        run: "updatecli diff --config ./updatecli/default.yaml"
+        env:
+          UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+      - name: "Run updatecli"
+        run: "updatecli apply --config ./updatecli/default.yaml"
+        env:
+          UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
