@@ -16,11 +16,11 @@ on:
   #   # Run once a day
   #   - cron: '0 0 * * *'
 
-permissions:
-  contents: "write"
-  pull-requests: "write"
+# permissions:
+#   contents: "write"
+#   pull-requests: "write"
 
-## Job example with just GH user
+## Job example with just GH user and PAT token
 # jobs:
 #   updatecli:
 #     runs-on: "ubuntu-latest"
