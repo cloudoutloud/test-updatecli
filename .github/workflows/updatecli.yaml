@@ -63,8 +63,8 @@ jobs:
         with:
           app_id: ${{ secrets.UPDATECLIBOT_APP_ID }}
           private_key: ${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}
-      # - name: "Run updatecli"
-      #   run: "updatecli apply --config ./updatecli/default.yaml"
-      #   env:
-      #     GITHUB_ACTOR: ${{ secrets.UPDATECLI_BOT_GITHUB_ACTOR }}
-      #     GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+      - name: "Run updatecli"
+        run: "updatecli apply --config ./updatecli/default.yaml"
+        env:
+          # GITHUB_ACTOR: ${{ secrets.UPDATECLI_BOT_GITHUB_ACTOR }}
+          UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
