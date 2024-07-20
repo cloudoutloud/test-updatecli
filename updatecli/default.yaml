@@ -42,13 +42,22 @@ scms:
   default:
     kind: github
     spec:
-      user: 'github-actions[bot]'
-      username: 'github-actions[bot]'
-      email: 'github-actions[bot]@users.noreply.github.com'
+      # user: 'github-actions[bot]'
+      # username: 'github-actions[bot]'
+      # email: 'github-actions[bot]@users.noreply.github.com'
+      user: 'cloudoutloud'
+      username: 'cloudoutloud'
       owner: "cloudoutloud"
       repository: "test-updatecli"
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: "test-GH-app"
+      branch: "main"
+      gpg:
+        signingKey: |
+          -----BEGIN PGP PRIVATE KEY BLOCK-----
+
+          '{{ requiredEnv "GPG_KEY" }}'
+          -----END PGP PRIVATE KEY BLOCK-----
+        enabled: true
 
 actions:
   default:
