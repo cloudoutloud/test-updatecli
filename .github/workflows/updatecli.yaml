@@ -37,7 +37,7 @@ on:
 #       - name: Run Updatecli in apply mode
 #         run: "updatecli apply --config ./updatecli/default.yaml"
 
-## Job example when using a GH app to generate a token
+## Job example when using a GH app to generate a token, needs --experimental flag for commit to be signed by the github app
 jobs:
   updatecli:
     runs-on: "ubuntu-latest"
