@@ -53,7 +53,7 @@ scms:
       branch: "main"
       gpg:
         passphrase: '{{ requiredEnv "GPG_PASS_PHRASE" }}'
-        signingKey: |
+        signingKey:
           -----BEGIN PGP PRIVATE KEY BLOCK-----
 
           '{{ requiredEnv "GPG_KEY" }}'
