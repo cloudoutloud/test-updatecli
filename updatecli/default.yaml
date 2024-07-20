@@ -52,12 +52,12 @@ scms:
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       branch: "main"
       gpg:
+        passphrase: '{{ requiredEnv "GPG_PASS_PHRASE" }}'
         signingKey: |
           -----BEGIN PGP PRIVATE KEY BLOCK-----
 
           '{{ requiredEnv "GPG_KEY" }}'
           -----END PGP PRIVATE KEY BLOCK-----
-        enabled: true
 
 actions:
   default:
