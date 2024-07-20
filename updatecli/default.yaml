@@ -42,8 +42,9 @@ scms:
   default:
     kind: github
     spec:
-      user: 'github-actions'
-      username: 'github-actions'
+      user: 'github-actions[bot]'
+      username: 'github-actions[bot]'
+      email: 'github-actions[bot]@users.noreply.github.com'
       owner: "cloudoutloud"
       repository: "test-updatecli"
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
