@@ -52,19 +52,16 @@ jobs:
       - name: Install Updatecli in the runner
         uses: updatecli/updatecli-action@v2
 
-      - name: "Run updatecli in dryrun"
-        run: "updatecli diff --config ./updatecli/default.yaml"
-        # env:
-        #   GITHUB_ACTOR: ${{ github.actor }}
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - id: generate_token
         uses: tibdex/github-app-token@v2.1
-        # if: github.ref == 'refs/heads/main'
         with:
           app_id: ${{ secrets.UPDATECLIBOT_APP_ID }}
           private_key: ${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}
+
+      - name: "Run updatecli in dryrun"
+        run: "updatecli diff --config ./updatecli/default.yaml"
+
       - name: "Run updatecli"
         run: "updatecli apply --config ./updatecli/default.yaml"
         env:
-          # GITHUB_ACTOR: ${{ secrets.UPDATECLI_BOT_GITHUB_ACTOR }}
           UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
