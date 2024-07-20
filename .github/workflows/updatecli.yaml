@@ -20,6 +20,25 @@ permissions:
   contents: "write"
   pull-requests: "write"
 
+## Job example with just GH user
+# jobs:
+#   updatecli:
+#     runs-on: "ubuntu-latest"
+#     env:
+#       UPDATECLI_GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Install Updatecli in the runner
+#         uses: updatecli/updatecli-action@v2
+
+#       - name: Run Updatecli in Dry Run mode
+#         run: "updatecli diff --config ./updatecli/default.yaml"
+
+#       - name: Run Updatecli in apply mode
+#         run: "updatecli apply --config ./updatecli/default.yaml"
+
 jobs:
   updatecli:
     runs-on: "ubuntu-latest"
@@ -32,8 +51,14 @@ jobs:
       - name: Install Updatecli in the runner
         uses: updatecli/updatecli-action@v2
 
-      - name: Run Updatecli in Dry Run mode
-        run: "updatecli diff --config ./updatecli/default.yaml"
-
-      - name: Run Updatecli in apply mode
-        run: "updatecli apply --config ./updatecli/default.yaml"
+      - name: "Run updatecli in dryrun"
+        run: "updatecli compose diff"
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: tibdex/github-app-token@v2.1
+        id: generate_token
+        # if: github.ref == 'refs/heads/main'
+        with:
+          app_id: ${{ secrets.UPDATECLIBOT_APP_ID }}
+          private_key: ${{ secrets.UPDATECLIBOT_APP_PRIVKEY }}
