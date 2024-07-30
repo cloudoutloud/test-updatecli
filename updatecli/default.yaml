@@ -6,8 +6,8 @@ autodiscovery:
   groupby: individual
   # Only update on major versions
   versionfilter:
-      kind: semver
-      pattern: minor
+    kind: semver
+    pattern: major
   # scmid is applied to all crawlers
   scmid: default
   # actionid is applied to all crawlers
