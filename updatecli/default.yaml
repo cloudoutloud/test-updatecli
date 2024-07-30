@@ -4,16 +4,17 @@ name: Argocd Autodiscovery Example
 autodiscovery:
   # 1 PR per a chart
   groupby: individual
-  # Only update on major versions
-  versionfilter:
-      kind: semver
-      pattern: minor
   # scmid is applied to all crawlers
   scmid: default
   # actionid is applied to all crawlers
   actionid: default
   crawlers:
     argocd:
+      # Only update on major versions
+      versionfilter:
+        kind: semver
+        pattern: major
+        strict: true
       # To ignore specific path
       # ignore:
       #   # Ignore manifest match path "dev/*.yaml"
@@ -51,7 +52,7 @@ scms:
       # email: ''
       repository: 'test-updatecli'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: 'test-GH-app'
+      branch: 'test-semver'
       commitusingapi: true
       # gpg:
       #   passphrase: ''
