@@ -7,7 +7,7 @@ autodiscovery:
   # Only update on major versions
   versionfilter:
     kind: semver
-    pattern: minor
+    pattern: patch
   # scmid is applied to all crawlers
   scmid: default
   # actionid is applied to all crawlers
@@ -51,7 +51,7 @@ scms:
       # email: ''
       repository: 'test-updatecli'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: 'test-GH-app'
+      branch: 'test-semver'
       commitusingapi: true
       # gpg:
       #   passphrase: ''
