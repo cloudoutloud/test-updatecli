@@ -52,7 +52,7 @@ scms:
       # email: ''
       repository: 'test-updatecli'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: 'test-semver'
+      branch: 'test-semver-2'
       commitusingapi: true
       # gpg:
       #   passphrase: ''
