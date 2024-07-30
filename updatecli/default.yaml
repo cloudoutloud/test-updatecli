@@ -13,7 +13,7 @@ autodiscovery:
       # Only update on major versions
       versionfilter:
         kind: semver
-        pattern: minor
+        pattern: patch
         strict: true
       # To ignore specific path
       # ignore:
