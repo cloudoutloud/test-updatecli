@@ -61,7 +61,7 @@ jobs:
         env:
           UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
-      # - name: "Run updatecli"
-      #   run: "updatecli apply --config ./updatecli/default.yaml"
-      #   env:
-      #     UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+      - name: "Run updatecli"
+        run: "updatecli apply --config ./updatecli/default.yaml"
+        env:
+          UPDATECLI_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
