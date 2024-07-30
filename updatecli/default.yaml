@@ -13,7 +13,7 @@ autodiscovery:
       # Only update on major versions
       versionfilter:
         kind: semver
-        pattern: patch
+        pattern: major
         strict: true
       # To ignore specific path
       # ignore:
@@ -52,7 +52,7 @@ scms:
       # email: ''
       repository: 'test-updatecli'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: 'test-semver-2'
+      branch: 'main'
       commitusingapi: true
       # gpg:
       #   passphrase: ''
