@@ -7,7 +7,7 @@ autodiscovery:
   # Only update on major versions
   versionfilter:
     kind: semver
-    pattern: patch
+    pattern: minor
   # scmid is applied to all crawlers
   scmid: default
   # actionid is applied to all crawlers
