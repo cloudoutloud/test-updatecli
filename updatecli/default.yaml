@@ -10,11 +10,12 @@ autodiscovery:
   actionid: default
   crawlers:
     argocd:
+      rootdir: global/*
       # Only update on major versions
       versionfilter:
-          kind: semver
-          pattern: major
-          strict: true
+        kind: semver
+        pattern: major
+        strict: true
       # To ignore specific path
       # ignore:
       #   # Ignore manifest match path "dev/*.yaml"
