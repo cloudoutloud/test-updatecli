@@ -10,7 +10,7 @@ autodiscovery:
   actionid: default
   crawlers:
     argocd:
-      rootdir: global/*
+      rootdir: global
       # Only update on major versions
       versionfilter:
         kind: semver
